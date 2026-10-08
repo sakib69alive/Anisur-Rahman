@@ -21,3 +21,6 @@ The QR code uses the page's real address automatically, so it stays correct if t
 
 ## After you change CSS/JS
 GitHub Pages lets browsers cache files for ~10 minutes. In `index.html`, change the `?v=...` after `style.css` and each `.js` file (any new value) whenever you edit those files, so visitors never get a mix of old and new files.
+
+## Wrong links
+`404.html` sends any mistyped address under the site (for example one with extra characters) to the card instead of GitHub's error page. Always share exactly: `https://sakib69alive.github.io/Anisur-Rahman/`
