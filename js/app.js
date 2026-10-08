@@ -78,13 +78,15 @@
 
   function renderLinks() {
     var wrap = $("#links");
-    var items = P.links.filter(function (l) { return l.href; });
+    var items = P.links.filter(function (l) { return l.href || l.copy; });
     wrap.innerHTML = items.map(function (l, i) {
       var ext = /^https?:/.test(l.href);
-      return '<a class="link reveal" style="--c:' + esc(l.color) + ";--d:" + i * 70 + 'ms" href="' + esc(l.href) + '"' + (ext ? ' target="_blank" rel="noopener"' : "") + ">" +
+      var tag = l.copy && !l.href ? "button" : "a";
+      var attrs = tag === "button" ? ' type="button" data-copy="' + esc(l.copy) + '"' : ' href="' + esc(l.href) + '"' + (ext ? ' target="_blank" rel="noopener"' : "");
+      return "<" + tag + ' class="link reveal" style="--c:' + esc(l.color) + ";--d:" + i * 70 + "ms\"" + attrs + ">" +
         '<span class="link-ic">' + icon(l.icon) + "</span>" +
         '<span class="link-t"><b>' + esc(l.label) + "</b><small>" + esc(l.display || "Tap to open") + "</small></span>" +
-        '<span class="link-go">' + icon("arrow") + "</span></a>";
+        '<span class="link-go">' + icon(tag === "button" ? "copy" : "arrow") + "</span></" + tag + ">";
     }).join("");
   }
 
@@ -186,6 +188,11 @@
   }
 
   document.addEventListener("click", function (e) {
+    var cp = e.target.closest("[data-copy]");
+    if (cp) {
+      var v = cp.getAttribute("data-copy");
+      copyText(v).then(function () { toast("Number copied — paste it in imo search"); }, function () { toast(v); });
+    }
     if (e.target.closest("[data-save]")) saveContact();
   });
 

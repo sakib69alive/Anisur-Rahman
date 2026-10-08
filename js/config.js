@@ -5,7 +5,6 @@
 
 window.PROFILE = {
   name: "Anisur Rahman Sajal",
-  nameBn: "আনিসুর রহমান সাজল",
   roles: ["Businessman", "Car Dealer", "Real Estate"],
   tagline: "Cars & Property — dealt with trust.",
 
@@ -18,7 +17,8 @@ window.PROFILE = {
 
   /* ----------------------------------------------------------------------
      CONTACT LINKS
-     A link shows up on the page (and in the vCard) only when `href` is filled.
+     A link shows up on the page (and in the vCard) only when `href` is filled
+     (or `copy`, which makes the card copy that text when tapped — used for imo).
      To add one later: paste the link into `href` (and `display` if you want
      text under the name). Nothing else to change.
        Facebook   https://facebook.com/yourpage
@@ -32,11 +32,11 @@ window.PROFILE = {
     { id: "call",      label: "Call",      display: "+880 1911-817122", icon: "phone",     color: "#22c55e", href: "tel:+8801911817122" },
     { id: "whatsapp",  label: "WhatsApp",  display: "+880 1911-817122", icon: "whatsapp",  color: "#25d366", href: "https://wa.me/8801911817122?text=Hello%20Anisur%20Rahman%20Sajal%2C%20I%20found%20your%20digital%20card." },
     { id: "sms",       label: "SMS",       display: "Send a message",   icon: "sms",       color: "#38bdf8", href: "sms:+8801911817122" },
-    { id: "email",     label: "Email",     display: "",                 icon: "mail",      color: "#f97316", href: "" },
-    { id: "facebook",  label: "Facebook",  display: "",                 icon: "facebook",  color: "#1877f2", href: "" },
+    { id: "email",     label: "Email",     display: "afrinr461@gmail.com",                 icon: "mail",      color: "#f97316", href: "mailto:afrinr461@gmail.com" },
+    { id: "facebook",  label: "Facebook",  display: "facebook.com/anis.rhaman.121",                 icon: "facebook",  color: "#1877f2", href: "https://www.facebook.com/anis.rhaman.121" },
     { id: "messenger", label: "Messenger", display: "",                 icon: "messenger", color: "#a855f7", href: "" },
-    { id: "imo",       label: "imo",       display: "",                 icon: "imo",       color: "#0ea5e9", href: "" },
-    { id: "viber",     label: "Viber",     display: "",                 icon: "viber",     color: "#7360f2", href: "" },
+    { id: "imo",       label: "imo",       display: "+880 1911-817122 · tap to copy", icon: "imo", color: "#0ea5e9", href: "", copy: "+8801911817122" }, // imo has no public link by number, so tapping copies it
+    { id: "viber",     label: "Viber",     display: "+880 1911-817122",                 icon: "viber",     color: "#7360f2", href: "viber://chat?number=%2B8801911817122" },
     { id: "telegram",  label: "Telegram",  display: "",                 icon: "telegram",  color: "#26a5e4", href: "" },
     { id: "instagram", label: "Instagram", display: "",                 icon: "instagram", color: "#e1306c", href: "" },
     { id: "linkedin",  label: "LinkedIn",  display: "",                 icon: "linkedin",  color: "#0a66c2", href: "" },

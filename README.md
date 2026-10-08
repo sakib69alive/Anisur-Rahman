@@ -18,3 +18,6 @@ Everything lives in [`js/config.js`](js/config.js):
 - Change text, roles, about, phone — same file.
 
 The QR code uses the page's real address automatically, so it stays correct if the domain changes.
+
+## After you change CSS/JS
+GitHub Pages lets browsers cache files for ~10 minutes. In `index.html`, change the `?v=...` after `style.css` and each `.js` file (any new value) whenever you edit those files, so visitors never get a mix of old and new files.

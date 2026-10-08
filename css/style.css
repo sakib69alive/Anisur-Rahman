@@ -72,7 +72,6 @@ h1, h2, h3, p { margin: 0; }
 .hero-body { position: relative; z-index: 3; margin-top: 48px; padding: 0 22px; text-align: center; }
 .hero-body > * { opacity: 0; transform: translateY(18px); animation: up 0.9s var(--ease) forwards; }
 .name { animation-delay: 0.5s; }
-.name-bn { animation-delay: 0.6s; }
 .roles { animation-delay: 0.7s; }
 .tagline { animation-delay: 0.8s; }
 .quick { animation-delay: 0.95s; }
@@ -82,7 +81,6 @@ h1, h2, h3, p { margin: 0; }
 .name { font-family: var(--serif); font-weight: 600; font-size: clamp(27px, 8.2vw, 42px); line-height: 1.12; letter-spacing: -0.3px; color: var(--ink); }
 .name span { background: linear-gradient(100deg, var(--ink) 40%, var(--forest-2) 50%, var(--ink) 60%); background-size: 250% 100%; background-position: 100% 0; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shine 2.4s ease-out 1.4s 1 both; }
 @keyframes shine { from { background-position: 100% 0; } to { background-position: 0% 0; } }
-.name-bn { font-family: "Noto Sans Bengali", var(--font); font-size: 17px; font-weight: 500; color: var(--brass); margin-top: 6px; }
 .roles { margin-top: 14px; display: flex; flex-wrap: wrap; justify-content: center; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--forest); white-space: nowrap; }
 .roles span + span::before { content: ""; display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: var(--brass); margin: 0 8px; vertical-align: middle; }
 .tagline { color: var(--mut); font-size: 15px; margin-top: 10px; font-style: italic; font-family: var(--serif); }
@@ -118,6 +116,7 @@ h1, h2, h3, p { margin: 0; }
   display: flex; align-items: center; gap: 14px; padding: 13px 16px 13px 13px; border-radius: var(--r); background: var(--paper); border: 1px solid var(--line);
   position: relative; overflow: hidden; transition: transform 0.35s var(--ease), border-color 0.35s, box-shadow 0.35s;
 }
+button.link { width: 100%; font: inherit; color: inherit; text-align: left; cursor: pointer; }
 .link:active { transform: scale(0.98); }
 @media (hover: hover) { .link:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--c) 55%, transparent); box-shadow: var(--shadow); } }
 .link-ic { flex: none; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: color-mix(in srgb, var(--c) 14%, var(--paper)); color: var(--c); }
