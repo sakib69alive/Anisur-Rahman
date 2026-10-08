@@ -190,7 +190,7 @@
   });
 
   /* --------------------------------------------------------------------- QR */
-  var STYLE = { shape: "round", a: "#12301f", b: "#2f6a4c", eye: "#12301f", eyeIn: "#12301f" };
+  var STYLE = { shape: "square", a: "#12301f", b: "#2f6a4c", eye: "#12301f", eyeIn: "#12301f" };
   var qrCanvas = $("#qr");
   var photoImg = null;
 
@@ -218,10 +218,10 @@
     ctx.clearRect(0, 0, W, H);
 
     // card
-    ctx.beginPath(); rr(ctx, 0, 0, W, H, 56); ctx.fillStyle = "#fbf8f1"; ctx.fill();
+    ctx.beginPath(); rr(ctx, 0, 0, W, H, 10); ctx.fillStyle = "#ffffff"; ctx.fill();
     var gg = ctx.createLinearGradient(0, 0, W, H);
     gg.addColorStop(0, "#f7e3a6"); gg.addColorStop(0.5, "#c9a02f"); gg.addColorStop(1, "#8a6410");
-    ctx.beginPath(); rr(ctx, 22, 22, W - 44, H - 44, 40); ctx.strokeStyle = gg; ctx.lineWidth = 5; ctx.stroke();
+    ctx.beginPath(); rr(ctx, 22, 22, W - 44, H - 44, 4); ctx.strokeStyle = gg; ctx.lineWidth = 5; ctx.stroke();
 
     ctx.textAlign = "center";
     ctx.fillStyle = "#9a7420";
@@ -260,18 +260,18 @@
     });
 
     // centre photo (max ~19% of width; level-H error correction absorbs it)
-    var cx = W / 2, cy = qy + size / 2, rad = 76;
-    ctx.beginPath(); ctx.arc(cx, cy, rad + 14, 0, Math.PI * 2); ctx.fillStyle = "#fbf8f1"; ctx.fill();
+    var cx = W / 2, cy = qy + size / 2, hs = 74;
+    ctx.beginPath(); rr(ctx, cx - hs - 14, cy - hs - 14, (hs + 14) * 2, (hs + 14) * 2, 6); ctx.fillStyle = "#ffffff"; ctx.fill();
     ctx.save();
-    ctx.beginPath(); ctx.arc(cx, cy, rad, 0, Math.PI * 2); ctx.clip();
-    if (photoImg) ctx.drawImage(photoImg, FACE.sx, FACE.sy, FACE.s, FACE.s, cx - rad, cy - rad, rad * 2, rad * 2);
-    else { ctx.fillStyle = st.a; ctx.fillRect(cx - rad, cy - rad, rad * 2, rad * 2); ctx.fillStyle = "#f7e3a6"; ctx.font = '700 56px Georgia, serif'; ctx.textBaseline = "middle"; ctx.fillText("AR", cx, cy + 3); ctx.textBaseline = "alphabetic"; }
+    ctx.beginPath(); rr(ctx, cx - hs, cy - hs, hs * 2, hs * 2, 3); ctx.clip();
+    if (photoImg) ctx.drawImage(photoImg, FACE.sx, FACE.sy, FACE.s, FACE.s, cx - hs, cy - hs, hs * 2, hs * 2);
+    else { ctx.fillStyle = st.a; ctx.fillRect(cx - hs, cy - hs, hs * 2, hs * 2); ctx.fillStyle = "#f7e3a6"; ctx.font = "700 56px Georgia, serif"; ctx.textBaseline = "middle"; ctx.fillText("AR", cx, cy + 3); ctx.textBaseline = "alphabetic"; }
     ctx.restore();
-    ctx.beginPath(); ctx.arc(cx, cy, rad + 5, 0, Math.PI * 2); ctx.strokeStyle = gg; ctx.lineWidth = 8; ctx.stroke();
+    ctx.beginPath(); rr(ctx, cx - hs - 5, cy - hs - 5, (hs + 5) * 2, (hs + 5) * 2, 5); ctx.strokeStyle = gg; ctx.lineWidth = 7; ctx.stroke();
 
     // caption
-    ctx.fillStyle = "#1c2420";
-    ctx.font = '700 52px "Playfair Display", Georgia, serif';
+    ctx.fillStyle = "#111613";
+    ctx.font = '600 52px "Playfair Display", Georgia, serif';
     ctx.fillText(P.name, W / 2, 1010);
     ctx.fillStyle = "#6b7280";
     ctx.font = '600 28px "Plus Jakarta Sans", system-ui, sans-serif';
