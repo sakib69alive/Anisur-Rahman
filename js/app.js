@@ -190,7 +190,7 @@
   });
 
   /* --------------------------------------------------------------------- QR */
-  var STYLE = { shape: "square", a: "#12301f", b: "#2f6a4c", eye: "#12301f", eyeIn: "#12301f" };
+  var STYLE = { shape: "round", a: "#12301f", b: "#2f6a4c", eye: "#12301f", eyeIn: "#12301f" };
   var qrCanvas = $("#qr");
   var photoImg = null;
 
@@ -218,10 +218,10 @@
     ctx.clearRect(0, 0, W, H);
 
     // card
-    ctx.beginPath(); rr(ctx, 0, 0, W, H, 10); ctx.fillStyle = "#ffffff"; ctx.fill();
+    ctx.beginPath(); rr(ctx, 0, 0, W, H, 56); ctx.fillStyle = "#ffffff"; ctx.fill();
     var gg = ctx.createLinearGradient(0, 0, W, H);
     gg.addColorStop(0, "#f7e3a6"); gg.addColorStop(0.5, "#c9a02f"); gg.addColorStop(1, "#8a6410");
-    ctx.beginPath(); rr(ctx, 22, 22, W - 44, H - 44, 4); ctx.strokeStyle = gg; ctx.lineWidth = 5; ctx.stroke();
+    ctx.beginPath(); rr(ctx, 22, 22, W - 44, H - 44, 40); ctx.strokeStyle = gg; ctx.lineWidth = 5; ctx.stroke();
 
     ctx.textAlign = "center";
     ctx.fillStyle = "#9a7420";
